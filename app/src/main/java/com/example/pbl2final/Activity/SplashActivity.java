@@ -24,6 +24,7 @@ public class SplashActivity extends BaseActivity {
         animationView.playAnimation();
 
 
+
         Handler hd = new Handler();
         hd.postDelayed(new Runnable() {
 
