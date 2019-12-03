@@ -36,6 +36,8 @@ dependencies {
     //jsoup
     implementation 'org.jsoup:jsoup:1.12.1'
 
+    implementation 'com.airbnb.android:lottie:2.5.5'
+
 }
 
 apply plugin: 'com.google.gms.google-services'

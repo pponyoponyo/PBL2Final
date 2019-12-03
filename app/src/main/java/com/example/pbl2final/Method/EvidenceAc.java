@@ -15,76 +15,57 @@ import com.example.pbl2final.RuleSet.WindowOpenMethod;
 
 public class EvidenceAc {
 
-    private String url;
-    private int total = 0;
-    private int trueNum = 0;
-    private float resultN = 0;
+    private BackSlash backSlash;
+    private Bitly bitly;
+    private Dot dot;
+    private  EvalMethod evalMethod;
+    private LengthOfDoc lengthOfDoc;
+    private LengthOfURL lengthOfURL;
+    private NumOfLines numOfLines;
+    private SuspiciousWords suspiciousWords;
+    private TLD tld;
+    private WindowOpenMethod windowOpenMethod;
+    private UrlKorean urlKorean;
 
     public EvidenceAc(String url) {
-        this.url = url;
+
+        backSlash = new BackSlash(url);
+        bitly = new Bitly(url);
+        dot=new Dot(url);
+      //  evalMethod = new EvalMethod(url);
+       // lengthOfDoc = new LengthOfDoc(url);
+        lengthOfURL = new LengthOfURL(url);
+     //   numOfLines = new NumOfLines(url);
+     //   suspiciousWords = new SuspiciousWords(url);
+        tld = new TLD(url);
+    //    windowOpenMethod = new WindowOpenMethod(url);
+        urlKorean = new UrlKorean(url);
     }
 
-    public int Evidence(){
-
-        BackSlash backSlash = new BackSlash(url);
-        Bitly bitly = new Bitly(url);
-        Dot dot=new Dot(url);
-        EvalMethod evalMethod = new EvalMethod(url);
-        LengthOfDoc lengthOfDoc = new LengthOfDoc(url);
-        LengthOfURL lengthOfURL = new LengthOfURL(url);
-        NumOfLines numOfLines = new NumOfLines(url);
-        SuspiciousWords suspiciousWords = new SuspiciousWords(url);
-        TLD tld = new TLD(url);
-        WindowOpenMethod windowOpenMethod = new WindowOpenMethod(url);
-        UrlKorean urlKorean = new UrlKorean(url);
-
-
+    public boolean upperAuthority(){
         if(backSlash.isHypothesis() && lengthOfURL.isHypothesis()){
             if(dot.isHypothesis()){
                 //상위 권한 탈취 가능성
+                return true;
             }
         }
-
-        count();
-
-        if(tld.isCn_hypothesis()||tld.isRu_hypothesis()){
-            // 러시아와 중국에 위치한 TLD
-        }
-
-        count();
-
-        /*
-        if(backSlash.rule()){
-            trueNum++;
-        }
-        count();
-
-        if(tld.rule()){
-            trueNum++;
-        }
-        count();
-
-        if(bitly.rule() && suspiciousWords.rule()){
-            trueNum++;
-        }
-        count();
-
-        if(backSlash.rule()&& dot.rule()){
-            // 권한 및 경로 탈취 url
-            trueNum++;
-        }
-        count();*/
-
-        //result();
-
-        return 0;
+        return false;
     }
 
-    private void count(){
-        total ++;
+    public boolean ChinaTld(){
+        if(tld.isCn_hypothesis()){
+            // 중국에 위치한 TLD
+            return true;
+        }
+        return false;
     }
 
-    private void result(){
-
+    public boolean RussiaTld(){
+        if(tld.isRu_hypothesis()){
+            // 러시아에 위치한 TLD
+            return true;
+        }
+        return false;
     }
+
 }

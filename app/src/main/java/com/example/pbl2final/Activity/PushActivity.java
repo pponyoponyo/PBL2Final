@@ -1,12 +1,14 @@
 package com.example.pbl2final.Activity;
 
+import android.app.Activity;
+import android.app.Notification;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
 import com.example.pbl2final.R;
 
-public class PushActivity extends BaseActivity {
+public class PushActivity extends Activity {
 
     private String inputUrl;
 

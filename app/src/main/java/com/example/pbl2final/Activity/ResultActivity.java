@@ -1,13 +1,16 @@
 package com.example.pbl2final.Activity;
 
-import android.animation.ObjectAnimator;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.example.pbl2final.Bean.ReasonBean;
+import com.example.pbl2final.Method.DB;
+import com.example.pbl2final.Method.EvidenceAc;
 import com.example.pbl2final.R;
 
 
@@ -19,6 +22,12 @@ public class ResultActivity extends BaseActivity {
     private int value=0;
     private ProgressBar progressBar;
     private int add=5; // 증가량, 방향
+    private String inputUrl;
+    private int percent;
+    private String reason = "";
+    private int total=0;
+    private int trueNum=0;
+    private float temp =0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,24 +64,15 @@ public class ResultActivity extends BaseActivity {
         });
         t.start();
 
+        // todo 리턴되는 true 개수를 progressBar.setProgress(trueNum) 해주기
 
-
-
-   /*     // todo 리턴되는 true 개수를 progressBar.setProgress(trueNum) 해주기
-
-        progressBar=(ProgressBar)findViewById(R.id.progress_circular1);
-        progressBar.setProgress(testNum);
-*/
-/*
         Intent i = getIntent();
-        String reason = i.getStringExtra("reason");
-        int percent = i.getIntExtra("percent",0);
+        inputUrl = i.getExtras().getString("url");
 
-        // 콜렉트 변수 percent 가 기준치 10을 넘어가면
-        if(percent>=10) {
-            txtResult.setText("이유 : " + reason + "\n" + "탐지(10기준):"+percent+"\n"+"악성URL로 판별"+"\n" );
-        }
-*/
+        process();
+
+        txtResult.setText("percent : "+ percent  +"reason : "+reason);
+
         findViewById(R.id.btnBack).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -89,5 +89,44 @@ public class ResultActivity extends BaseActivity {
             }
         });
 
+    }
+
+    private void process(){
+
+       DB db = new DB(inputUrl);
+       ReasonBean reasonBean = db.compare();
+
+       if(reasonBean!=null){
+           percent = reasonBean.percent;
+           reason = reasonBean.reason;
+           return;
+       }
+
+        EvidenceAc evidenceAc = new EvidenceAc(inputUrl);
+
+        if(evidenceAc.upperAuthority()){
+            trueNum++;
+            reason += "상위 권한 탈취 가능성이 있습니다.\n ";
+        }
+        count();
+
+        result();
+
+    }
+
+    private void count(){
+       total++;
+    }
+
+    private void result(){
+
+        if(trueNum == 0 ){
+            percent = 0;
+            reason = "정상적인 URL 입니다.\n";
+            return;
+        }
+
+        temp = (float)trueNum/(float)total;
+        percent = (int)(temp*100);
     }
 }

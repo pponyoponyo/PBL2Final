@@ -7,13 +7,11 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.pbl2final.R;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
 public class MainActivity extends BaseActivity {
 
     private EditText input;
-    private String inputUrl;
+    private String inputUrl = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,36 +20,43 @@ public class MainActivity extends BaseActivity {
 
         input = findViewById(R.id.edtInput);
 
-        /*
+/*
         // Write a message to the database
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference dbRef = database.getReference("DB");
 
-        int n =6 ;
-        dbRef.child("URL"+n).setValue("diaryofagameaddict.com\n");
+        UrlBean temp = new UrlBean();
+        temp.url = "test.com";
+        int n = 0;
+        dbRef.child("URL"+n).setValue(temp);
         n++;
-        dbRef.child("URL"+n).setValue("espdesign.com.au\n");
+        temp.url = "espdesign.com.au";
+        dbRef.child("URL"+n).setValue(temp);
         n++;
-        dbRef.child("URL"+n).setValue("iamagameaddict.com\n");
+        temp.url = "iamagameaddict.com";
+        dbRef.child("URL"+n).setValue(temp);
         n++;
-        dbRef.child("URL"+n).setValue("kalantzis.net\n");
+        temp.url = "kalantzis.net";
+        dbRef.child("URL"+n).setValue(temp);
         n++;
-        dbRef.child("URL"+n).setValue("slightlyoffcenter.net\n");
+        temp.url = "slightlyoffcenter.net";
+        dbRef.child("URL"+n).setValue(temp);
         n++;
-        dbRef.child("URL"+n).setValue("tubemoviez.com\n");
+        temp.url = "tubemoviez.com";
+        dbRef.child("URL"+n).setValue(temp);
         n++;
 */
-        findViewById(R.id.btnCheck).setOnClickListener(new View.OnClickListener() {
+
+     findViewById(R.id.btnCheck).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                if(input==null){
+                inputUrl = input.getText().toString();
+
+                if(inputUrl.equals("")){
                     Toast.makeText(getApplicationContext(), "URL을 입력하세요.",Toast.LENGTH_SHORT).show();
                     return;
                 }
-
-                inputUrl = input.getText().toString();
-                input.setText("");
 
                 sendUrl();
             }

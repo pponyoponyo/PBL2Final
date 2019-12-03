@@ -21,7 +21,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".Activity.ResultActivity" />
-        <activity android:name=".Activity.ProcessActivity" />
         <activity
             android:name=".Activity.PopupActivity"
             android:label="NOTICE"
