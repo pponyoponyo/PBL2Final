@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.example.pbl2final.R;
 
 public class SplashActivity extends BaseActivity {
@@ -15,6 +16,13 @@ public class SplashActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+
+        //LottieAnimation 사용하기
+        LottieAnimationView animationView = (LottieAnimationView) findViewById(R.id.animation_view);
+        animationView.setAnimation("642-simple-tick-2.json");
+        animationView.loop(true);
+        animationView.playAnimation();
+
 
         Handler hd = new Handler();
         hd.postDelayed(new Runnable() {
