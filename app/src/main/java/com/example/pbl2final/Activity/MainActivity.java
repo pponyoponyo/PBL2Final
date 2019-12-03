@@ -27,7 +27,7 @@ public class MainActivity extends BaseActivity {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference dbRef = database.getReference("DB");
 
-        int n =0 ;
+        int n =6 ;
         dbRef.child("URL"+n).setValue("diaryofagameaddict.com\n");
         n++;
         dbRef.child("URL"+n).setValue("espdesign.com.au\n");
@@ -41,20 +41,6 @@ public class MainActivity extends BaseActivity {
         dbRef.child("URL"+n).setValue("tubemoviez.com\n");
         n++;
 */
-
-        //공유 기능으로 url data 받기
-        Intent intent = getIntent();
-        String action = intent.getAction();
-        String type = intent.getType();
-
-        if (Intent.ACTION_SEND.equals(action) && type != null) {
-            if ("text/plain".equals(type)) {
-                String sharedText = intent.getStringExtra(Intent.EXTRA_TEXT);    // 가져온 인텐트의 텍스트 정보
-                inputUrl = sharedText;
-
-                sendUrl();
-            }
-        }
 
         findViewById(R.id.btnCheck).setOnClickListener(new View.OnClickListener() {
             @Override
