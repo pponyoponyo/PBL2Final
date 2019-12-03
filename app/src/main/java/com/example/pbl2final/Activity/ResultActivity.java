@@ -18,6 +18,8 @@ public class ResultActivity extends BaseActivity {
         setContentView(R.layout.activity_result);
 
         txtResult = findViewById(R.id.txtResult);
+
+        // todo 리턴되는 true 개수를 progressBar.setProgress(trueNum) 해주기
 /*
         Intent i = getIntent();
         String reason = i.getStringExtra("reason");

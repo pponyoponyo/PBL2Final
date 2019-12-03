@@ -8,23 +8,36 @@
     android:orientation="vertical"
     android:layout_weight="1">
 
+    <ProgressBar
+        android:id="@+id/progress_circular"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="30dp"
+        android:layout_weight="0.3"
+        android:indeterminate="false"
+        android:max="100"
+        android:progress="80"
+        android:progressDrawable="@drawable/circle" />
+
     <TextView
         android:id="@+id/txtResult"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1" />
+        android:layout_height="wrap_content"/>
+
+
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_weight="0.5"
         android:orientation="horizontal">
 
         <Button
             android:id="@+id/btnBack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
             android:drawableLeft="@drawable/returnw"
             android:background="@drawable/btncorner"
             android:text="처음으로"
@@ -39,7 +52,6 @@
             android:id="@+id/btnOff"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
             android:drawableLeft="@drawable/offw"
             android:text="종료하기"
             android:background="@drawable/btncorner"
