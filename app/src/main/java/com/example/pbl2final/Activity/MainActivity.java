@@ -41,7 +41,6 @@ public class MainActivity extends BaseActivity {
         dbRef.child("URL"+n).setValue("tubemoviez.com\n");
         n++;
 */
-
         findViewById(R.id.btnCheck).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -60,8 +59,9 @@ public class MainActivity extends BaseActivity {
 
     }
     public void sendUrl(){
-        Intent i = new Intent(getBaseContext(), ProcessActivity.class);
+        Intent i = new Intent(getBaseContext(), ResultActivity.class);
         i.putExtra("url",inputUrl);
         startActivity(i);
+        finish();
     }
 }

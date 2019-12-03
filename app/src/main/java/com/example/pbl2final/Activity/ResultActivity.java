@@ -1,5 +1,6 @@
 package com.example.pbl2final.Activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -16,7 +17,7 @@ public class ResultActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
 
-        txtResult = findViewById(R.id.txtResult1);
+        txtResult = findViewById(R.id.txtResult);
 /*
         Intent i = getIntent();
         String reason = i.getStringExtra("reason");
@@ -28,6 +29,15 @@ public class ResultActivity extends BaseActivity {
         }
 */
         findViewById(R.id.btnBack).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getBaseContext(), MainActivity.class);
+                startActivity(i);
+                finish();
+            }
+        });
+
+        findViewById(R.id.btnOff).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 finish();
