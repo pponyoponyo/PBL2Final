@@ -8,30 +8,50 @@
     android:orientation="vertical"
     android:layout_weight="1">
 
-    <ProgressBar
-        android:id="@+id/progress_circular"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="30dp"
-        android:layout_weight="0.3"
-        android:indeterminate="false"
-        android:max="100"
-        android:progress="80"
-        android:progressDrawable="@drawable/circle" />
-
-    <TextView
-        android:id="@+id/txtResult"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="0dp"
+        android:layout_weight="0.6">
+
+        <ProgressBar
+            android:id="@+id/progress_circular1"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="20dp"
+            android:indeterminate="false"
+            android:max="100"
+            android:progress="80"
+            android:progressDrawable="@drawable/circle"
+            android:layout_marginLeft="55dp"/>
+
+        <TextView
+            android:id="@+id/txtResult"
+            android:text="percent"
+            android:textSize="50dp"
+            android:layout_alignBottom="@id/progress_circular1"
+            android:layout_alignTop="@id/progress_circular1"
+            android:layout_alignLeft="@id/progress_circular1"
+            android:layout_alignRight="@id/progress_circular1"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/colorBlack"
+            android:textStyle="bold"/>
 
 
 
+
+
+
+    </RelativeLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.5"
+        android:layout_weight="0.4"
         android:orientation="horizontal">
 
         <Button
@@ -62,8 +82,8 @@
             android:padding="15dp"
             android:textColor="@color/colorWhite"/>
 
+
+
     </LinearLayout>
-
-
-
 </LinearLayout>
+
