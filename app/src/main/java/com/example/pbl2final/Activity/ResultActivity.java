@@ -18,8 +18,8 @@ public class ResultActivity extends BaseActivity {
 
     Handler handler = new Handler() ; // Thread에서 화면에 그리기 위해 필요
     private TextView txtResult; //
-    private int testNum=9; // 연동 전 임의로 테스트 넘버 넣음
-    private int value=0;
+    private int testNum=6; // 연동 전 임의로 테스트 넘버 넣음
+    private int value=0; // 프로그래스바 초기값
     private ProgressBar progressBar;
     private int add=5; // 증가량, 방향
     private String inputUrl;
@@ -56,7 +56,7 @@ public class ResultActivity extends BaseActivity {
                         }
                     });
                     try{
-                        Thread.sleep(100); // tlrks wldus
+                        Thread.sleep(100);
                     } catch (InterruptedException e){}
                 }
 

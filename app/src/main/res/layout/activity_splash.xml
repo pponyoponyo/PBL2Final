@@ -31,7 +31,7 @@
         android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:text="please wait a minute"
+        android:text="please wait a second"
         android:textAlignment="center"
         android:textColor="@color/colorBlack"
         android:textSize="30dp" />
