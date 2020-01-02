@@ -1,9 +1,8 @@
 package com.example.pbl2final.RuleSet;
 
-
 import com.example.pbl2final.Method.RuleBase;
 
-public class BackSlash extends RuleBase {
+public class containDigits extends RuleBase {
 
     private String url;
     private boolean hypothesis = false;
@@ -11,31 +10,30 @@ public class BackSlash extends RuleBase {
     public boolean isHypothesis() {
         return hypothesis;
     }
-
     public void setHypothesis(boolean hypothesis) {
         this.hypothesis = hypothesis;
     }
 
-    public BackSlash(String url) {
+    public containDigits(String url) {
         super(url);
         this.url = url;
     }
 
     public void rule(){
+
+       char [] d = {'0','1','2','3','4','5','6','7','8','9'}; // digits 배열 선언
+
         char [] c ;
-        c = url.toCharArray();
-        int backslashNum=0;
+        c = url.toCharArray(); // url을 char 문자로 변환
+
 
         for(int i=0; i<c.length; i++){
-            if(c[i]=='\\'){
-                backslashNum++;
-
+            for(int j=0; j<10; j++){
+                if(c[i]==(d[j])){
+                setHypothesis(true);
+                }
             }
         }
-        if(backslashNum>5){ // 기준 수정
-            setHypothesis(true);
-        }
+
     }
-
-
 }

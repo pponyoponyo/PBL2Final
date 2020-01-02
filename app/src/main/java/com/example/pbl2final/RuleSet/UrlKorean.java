@@ -27,7 +27,6 @@ public class UrlKorean extends RuleBase {
     public boolean isHypothesis() {
         return hypothesis;
     }
-
     public void setHypothesis(boolean hypothesis) {
         this.hypothesis = hypothesis;
     }

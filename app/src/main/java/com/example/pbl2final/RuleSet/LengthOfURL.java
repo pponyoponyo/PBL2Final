@@ -18,8 +18,8 @@ public class LengthOfURL extends RuleBase {
         char [] c ; // null 로 초기화
         c = checkDot.toCharArray(); // 문자열을 char 배열로 설정
 
-        //Length of URL
-        if(c.length>40){
+        //Length of URL (길이개수 수정함)
+        if(c.length>50){
             setHypothesis(true);
         }
     }
@@ -27,7 +27,6 @@ public class LengthOfURL extends RuleBase {
     public boolean isHypothesis() {
         return hypothesis;
     }
-
     public void setHypothesis(boolean hypothesis) {
         this.hypothesis = hypothesis;
     }

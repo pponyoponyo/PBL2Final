@@ -13,7 +13,6 @@ public class WindowOpenMethod extends RuleBase {
     }
 
     public void rule(){
-
         if(html.contains("window.open()")){
             setHypothesis(true);
         }
@@ -22,7 +21,6 @@ public class WindowOpenMethod extends RuleBase {
     public boolean isHypothesis() {
         return hypothesis;
     }
-
     public void setHypothesis(boolean hypothesis) {
         this.hypothesis = hypothesis;
     }

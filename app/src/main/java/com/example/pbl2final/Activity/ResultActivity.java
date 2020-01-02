@@ -104,14 +104,14 @@ public class ResultActivity extends BaseActivity {
 
         EvidenceAc evidenceAc = new EvidenceAc(inputUrl);
 
-        if(evidenceAc.upperAuthority()){
+    /*    if(evidenceAc.upperAuthority()){
             trueNum++;
             reason += "상위 권한 탈취 가능성이 있습니다.\n ";
         }
         count();
 
         result();
-
+*/
     }
 
     private void count(){

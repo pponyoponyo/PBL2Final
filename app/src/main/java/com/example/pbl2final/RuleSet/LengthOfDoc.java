@@ -17,7 +17,7 @@ public class LengthOfDoc extends RuleBase {
 
         String checkDocument = html;
         char [] d ; // null 로 초기화
-        d = checkDocument.toCharArray(); // htmldocument문자열을 char 배열로 설정
+        d = checkDocument.toCharArray(); // htmldocument 문자열을 char 배열로 설정
 
         // Document length
         if(d.length>100){ // 100은 임의 값
@@ -28,7 +28,6 @@ public class LengthOfDoc extends RuleBase {
     public boolean isHypothesis() {
         return hypothesis;
     }
-
     public void setHypothesis(boolean hypothesis) {
         this.hypothesis = hypothesis;
     }

@@ -2,19 +2,21 @@ package com.example.pbl2final.RuleSet;
 
 import com.example.pbl2final.Method.RuleBase;
 
-public class EvalMethod extends RuleBase {
+import java.lang.reflect.Method;
+
+public class CharCodeAtMethod extends RuleBase {
 
     private String html;
     private boolean hypothesis = false;
 
-    public EvalMethod(String url) {
+    public CharCodeAtMethod(String url) {
         super(url);
         html = getHtml();
     }
 
     public void rule(){
 
-        if(html.contains("eval()")){
+        if(html.contains("CharCodeAt()")){
             setHypothesis(true);
         }
     }
@@ -22,6 +24,7 @@ public class EvalMethod extends RuleBase {
     public boolean isHypothesis() {
         return hypothesis;
     }
+
     public void setHypothesis(boolean hypothesis) {
         this.hypothesis = hypothesis;
     }

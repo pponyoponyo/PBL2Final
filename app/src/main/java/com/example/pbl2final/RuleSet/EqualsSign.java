@@ -2,7 +2,7 @@ package com.example.pbl2final.RuleSet;
 
 import com.example.pbl2final.Method.RuleBase;
 
-public class Bitly extends RuleBase {
+public class EqualsSign extends RuleBase {
 
     private String url;
     private boolean hypothesis = false;
@@ -14,15 +14,20 @@ public class Bitly extends RuleBase {
         this.hypothesis = hypothesis;
     }
 
-    public Bitly(String url) {
+    public EqualsSign(String url) {
         super(url);
         this.url = url;
     }
 
-    // 여기는 단축 url 관련 클래스임
-    public void rule(){
-        if(url.contains("bit.ly")){
-           setHypothesis(true);
+
+    public void rule() {
+        char[] c;
+        c = url.toCharArray(); // url을 char 문자로 변환
+
+        for (int i = 0; i < c.length; i++) {
+            if (c[i] == '=') {
+                setHypothesis(true);
+            }
         }
     }
 }

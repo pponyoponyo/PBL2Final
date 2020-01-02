@@ -16,19 +16,20 @@ public class SuspiciousWords extends RuleBase {
 
     public void rule(){
 
-        if(html.contains("택배")){
+        if(html.contains("택배")||html.contains("도박")||html.contains("보안승급")){
             setHypothesis(true);
         }
 
-        if(html.contains("도박")){
-            setHypothesis(true);
-        }
+        //todo '보안승급'관련하여 보안카드 입력 나타내는 룰 규칙 추가해서 룰체인으로 엮기
+
+
+
+
     }
 
     public boolean isHypothesis() {
         return hypothesis;
     }
-
     public void setHypothesis(boolean hypothesis) {
         this.hypothesis = hypothesis;
     }

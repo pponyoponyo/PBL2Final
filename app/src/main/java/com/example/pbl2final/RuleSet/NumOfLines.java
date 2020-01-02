@@ -25,15 +25,14 @@ public class NumOfLines extends RuleBase {
             }
         }
 
-        if(brNum>10){ // br 태그가 카운팅 된 경우 return true 한다!
-            setHypothesis(true);
-        }
+        if(brNum>10){ // br 태그가 카운팅 된 경우 return true 한다! 개수는 임의 개수
+        setHypothesis(true);
     }
+}
 
     public boolean isHypothesis() {
         return hypothesis;
     }
-
     public void setHypothesis(boolean hypothesis) {
         this.hypothesis = hypothesis;
     }

@@ -28,7 +28,6 @@ public class TLD extends RuleBase {
     public boolean isCn_hypothesis() {
         return cn_hypothesis;
     }
-
     public void setCn_hypothesis(boolean cn_hypothesis) {
         this.cn_hypothesis = cn_hypothesis;
     }
@@ -36,7 +35,6 @@ public class TLD extends RuleBase {
     public boolean isRu_hypothesis() {
         return ru_hypothesis;
     }
-
     public void setRu_hypothesis(boolean ru_hypothesis) {
         this.ru_hypothesis = ru_hypothesis;
     }

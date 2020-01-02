@@ -2,19 +2,19 @@ package com.example.pbl2final.RuleSet;
 
 import com.example.pbl2final.Method.RuleBase;
 
-public class EvalMethod extends RuleBase {
+public class parseIntMethod extends RuleBase {
 
     private String html;
     private boolean hypothesis = false;
 
-    public EvalMethod(String url) {
+    public parseIntMethod(String url) {
         super(url);
         html = getHtml();
     }
 
     public void rule(){
 
-        if(html.contains("eval()")){
+        if(html.contains("parseInt()")){
             setHypothesis(true);
         }
     }
